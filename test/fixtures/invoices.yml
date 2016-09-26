@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project_name: MyString
+  subcontractor_name: MyString
+  invoice_number: 1
+  invoice_amount: MyString
+
+two:
+  project_name: MyString
+  subcontractor_name: MyString
+  invoice_number: 1
+  invoice_amount: MyString
