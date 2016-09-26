@@ -1,5 +1,9 @@
 class AdminsController < ApplicationController
 	def index
+	
+	end
+
+	def list
 		@users = User.all
 	end
 
@@ -21,6 +25,10 @@ class AdminsController < ApplicationController
 
 			render :new
 		end
+	end
+
+	def show
+		@user = User.find(params[:id])
 	end
 
  	def edit

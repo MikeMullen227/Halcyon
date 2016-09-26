@@ -1,0 +1,15 @@
+
+<div class="container">
+	
+	<h2>Users Page</h2>
+	<% @users.each do |user| %>
+		<%= link_to user.name, admin_path(user) %> | 
+		<%= link_to "Delete", admin_path(user), method: "delete" %> | 
+		<%= link_to "Edit", edit_admin_path(user), method: "get" %> 
+		<br />
+
+	<%end%>
+
+	<br/>
+	<%= link_to "Create New User", new_admin_path %>
+</div>

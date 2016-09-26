@@ -1,0 +1,46 @@
+<div class="container">
+  <h2> Edit <%= @task.name %> </h2>
+
+  <%= @task.errors.full_messages %>
+
+  <%= form_for(@task, url: task_path(@task)) do |f| %>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :date %><br />
+      <%= f.date_field :date %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description %><br />
+      <%= f.text_field :description %>
+    </div>
+
+    <div class="field">
+      <%= f.label :location %><br />
+      <%= f.text_field :location %>
+    </div>
+
+    <div class="field">
+      <%= f.label :deadline %><br />
+      <%= f.date_field :deadline %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Create" %>
+    </div>
+
+
+  <% end %>
+
+</div>
+
+
+
+
+
+
+

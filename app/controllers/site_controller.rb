@@ -1,5 +1,7 @@
 class SiteController < ApplicationController
 	def show
-		render 'home1'
+
+		@current_user = current_user.id
+		render 'home'
 	end
 end

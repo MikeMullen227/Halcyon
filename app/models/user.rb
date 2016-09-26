@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :tasks
+  has_many :jobs
   validates :name, presence: true
 end

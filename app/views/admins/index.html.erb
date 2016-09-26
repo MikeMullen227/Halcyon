@@ -1,15 +1,8 @@
-<h2> Admin Page </h2>
+<div class="container">
+	
+	<h2> Admin Page </h2>
 
-
-<% @users.each do |user| %>
-	<%= link_to user.name %> | 
-	<%= link_to "Delete", admin_path(user), method: "delete" %> | 
-	<%= link_to "Edit", edit_admin_path(user), method: "get" %> 
-	<br />
-
-<%end%>
-
-<br>
-
-
-<%= link_to "Create a new user", new_admin_path %>
+	<%= link_to "Manage Users", '/admins/users' %> </br>
+	<%= link_to "Manage Tasks", tasks_path %> </br>	
+	<%= link_to "Manage Jobs", jobs_path %>
+</div>
