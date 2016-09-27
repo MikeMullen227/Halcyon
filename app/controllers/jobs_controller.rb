@@ -14,6 +14,10 @@ class JobsController < ApplicationController
 
 	def show
 		@job = Job.find_by(id: params[:id])
+		@users = @job.users
+		@tasks = @job.tasks
+		
+
 	end
 	
 	def create
@@ -31,7 +35,7 @@ class JobsController < ApplicationController
 				if user != ''
 					job.users << User.find_by(name: user)
 				end
-			end
+			end	
 			job.save
 
 			redirect_to '/jobs'
@@ -46,6 +50,7 @@ class JobsController < ApplicationController
    		@job = Job.find(params[:id])
  
     	render :edit
+    	redirect_to '/jobs'
   	end
 
   	def update

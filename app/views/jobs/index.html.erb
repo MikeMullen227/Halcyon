@@ -1,12 +1,10 @@
 <div class="container">
 	<h2> Jobs Page </h2>
-
-
-	<% @jobs.each do |job| %>
+		<% @jobs.each do |job| %>
 		<%= link_to job.name, job_path(job) %> | 
 		<%= link_to "Delete", job_path(job), method: "delete" %> | 
 		<%= link_to "Edit", edit_job_path(job), method: "get" %> |
-		<%= link_to "Create Task", new_task_path(job) %>
+		<%= link_to "Manage Tasks", job_path(job) %>
 		<br/>
 
 	<%end%>

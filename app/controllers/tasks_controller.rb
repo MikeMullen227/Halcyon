@@ -6,6 +6,7 @@ class TasksController < ApplicationController
 
 	def new
 		@task = Task.new
+		@job_id = params[:job_id]
 
 	end
 
@@ -15,15 +16,17 @@ class TasksController < ApplicationController
 	
 
 	def create
+		job_id = params[:task][:job_id]
 		task = Task.new(
 			name: params[:task][:name],
 			date: params[:task][:date],
 			description: params[:task][:description],
 			location: params[:task][:location],
-			deadline: params[:task][:deadline]
+			deadline: params[:task][:deadline],
+			job_id: job_id
 			)
 		if task.save
-			redirect_to '/tasks'
+			redirect_to '/jobs/' + job_id
 		else
 			@task = task
 
@@ -33,6 +36,8 @@ class TasksController < ApplicationController
 
 	def edit
    		@task = Task.find(params[:id])
+
+   		
  
     	render :edit
   	end
@@ -45,9 +50,10 @@ class TasksController < ApplicationController
 		task.location = params[:task][:location]
 		task.deadline = params[:task][:deadline]
 
+		job_id = task.job.id
 
 		if task.save
-			redirect_to '/tasks'
+			redirect_to job_path(job_id)
 		else
 			@task = task
 
@@ -60,8 +66,9 @@ class TasksController < ApplicationController
    		task = Task.find(params[:id])
    	
    		task.destroy
-
-    	redirect_to tasks_path
+   		job_id = task.job.id
+   		redirect_to job_path(job_id)
+    	
 	end
 
 end

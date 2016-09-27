@@ -1,7 +1,10 @@
 class SiteController < ApplicationController
 	def show
-
-		@current_user = current_user.id
+		if user_signed_in?
+			redirect_to '/admins'
+		else
 		render 'home'
+		
+	end
 	end
 end
