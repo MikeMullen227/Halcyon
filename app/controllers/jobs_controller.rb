@@ -5,6 +5,11 @@ class JobsController < ApplicationController
 
 	def new
 		@job = Job.new
+		@users = User.all
+		@user_array = []
+		@users.each do |user|
+			@user_array.push(user.name)
+		end
 	end
 
 	def show
@@ -18,7 +23,17 @@ class JobsController < ApplicationController
 			description: params[:job][:description],
 			location: params[:job][:location],
 			)
+
 		if job.save
+			#users = []
+			params[:job][:users].each do |user|
+				#users.push(User.find_by(:name user))
+				if user != ''
+					job.users << User.find_by(name: user)
+				end
+			end
+			job.save
+
 			redirect_to '/jobs'
 		else
 			@job = job
