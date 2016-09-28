@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  
+  before_action :redirect_if_not_admin 
 
 	def index
 		@users = User.all

@@ -8,5 +8,8 @@
 		<li> Location: <%= @task.location %> </li>
 		<li> Description: <%= @task.description %> </li>
 		<li> Deadline: <%= @task.deadline %> </li>
+			<%= @users.each do |user| %>
+		<li> Employee: <%=user.name %> </li>
+			<% end %>
 	</ul>
 </div>

@@ -1,4 +1,7 @@
 class TasksController < ApplicationController
+		before_action :redirect_if_not_admin 
+
+	
 	def index
 		@tasks = Task.all
 		
@@ -7,11 +10,17 @@ class TasksController < ApplicationController
 	def new
 		@task = Task.new
 		@job_id = params[:job_id]
+		@users = User.all
+		@user_array = []
+		@users.each do |user|
+			@user_array.push(user.name)
+		end
 
 	end
 
 	def show
 		@task = Task.find_by(id: params[:id])
+		@task_users = @task.users
 	end
 	
 
@@ -23,10 +32,23 @@ class TasksController < ApplicationController
 			description: params[:task][:description],
 			location: params[:task][:location],
 			deadline: params[:task][:deadline],
+			# user: params[:task][:user],
 			job_id: job_id
 			)
+
+
 		if task.save
+			
+			params[:task][:users].each do |user|
+				#users.push(User.find_by(:name user))
+				if user != ''
+					task.users << User.find_by(name: user)
+				end
+			end	
+			task.save
+
 			redirect_to '/jobs/' + job_id
+
 		else
 			@task = task
 

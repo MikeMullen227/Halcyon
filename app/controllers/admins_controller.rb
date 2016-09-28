@@ -1,63 +1,65 @@
 class AdminsController < ApplicationController
-	def index
-	
-	end
+  before_action :redirect_if_not_admin
+  def index
 
-	def list
-		@users = User.all
-	end
+  end
 
-	def new 
-		 @user = User.new
-	end
+  def list
+    @users = User.all
+  end
 
-	def create
-		user = User.new(
-			name: params[:user][:name],
-			email: params[:user][:email],
-			password: params[:user][:password]
-		)
+  def new
+    @user = User.new
+  end
 
-		if user.save
-			redirect_to '/admins'
-		else
-			@user = user
+  def create
+    user = User.new(
+      name: params[:user][:name],
+      email: params[:user][:email],
+      password: params[:user][:password],
+      role: params[:user][:role]
+    )
 
-			render :new
-		end
-	end
+    if user.save
+      redirect_to '/admins'
+    else
+      @user = user
 
-	def show
-		@user = User.find(params[:id])
-	end
+      render :new
+    end
+  end
 
- 	def edit
-   		@user = User.find(params[:id])
- 
-    	render :edit
-  	end
+  def show
+    @user = User.find(params[:id])
+  end
 
-  	def update
-		user = User.find(params[:id])
-		user.name = params[:user][:name]
-		user.email = params[:user][:email]
-		user.password = params[:user][:password]
+  def edit
+    @user = User.find(params[:id])
 
-		if user.save
-			redirect_to '/admins'
-		else
-			@user = user
+    render :edit
+  end
 
-			render :edit
-		end
-	end
+  def update
+    user = User.find(params[:id])
+    user.name = params[:user][:name]
+    user.email = params[:user][:email]
+    user.password = params[:user][:password]
 
-	def destroy
+    if user.save
+      redirect_to '/admins'
+    else
+      @user = user
 
-   		user = User.find(params[:id])
-   	
-   		user.destroy
+      render :edit
+    end
+  end
 
-    	redirect_to admins_path
-	end
+  def destroy
+
+    user = User.find(params[:id])
+
+    user.destroy
+
+    redirect_to admins_path
+  end
 end

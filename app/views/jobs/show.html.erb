@@ -7,19 +7,32 @@
 		<li> Date: <%= @job.date %> </li>
 		<li> Location: <%= @job.location %> </li>
 		<li> Description: <%= @job.description %> </li>
-			<% @users.each do |user| %>
-		<li> Employee: <%= user.name %> </li>	
-			<% end %>
+
+		<% @job.users.each do |user| %>
+			<li> Employee: <%= user.name %> </li>	
+		<% end %>
 	</ul>
 
 	<h3>Jobs Tasks</h3>
 	<ul>
 		<% @tasks.each do |task| %>
-		<li>Name: <%= task.name %>  <%= link_to "Edit", edit_task_path(task), method: "get" %> |							<%= link_to "Delete", task_path(task), method: "delete" %> |   </li>	
-		<li>Date: <%= task.date %> </li>
-		<li>Description: <%= task.description %> </li>
-		<li>Location: <%= task.location %> </li>
-		<li>Deadline: <%= task.deadline %> </li>	
+			<li>Name: <%= task.name %>  
+			<li>Date: <%= task.date %> </li>
+			<li>Description: <%= task.description %> </li>
+			<li>Location: <%= task.location %> </li>
+			<li>Deadline: <%= task.deadline %> </li>
+
+			<li>
+				Employees:
+				<% task.users.each do |user| %>
+					 <%= user.name %>,
+				<% end %>
+			</li>	
+
+			<%= link_to "Edit", edit_task_path(task), method: "get" %> |						
+			<%= link_to "Delete", task_path(task), method: "delete" %> |  	
+			</br>
+			</br>
 		<% end %>
 	</ul>
 

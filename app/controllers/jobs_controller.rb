@@ -1,4 +1,6 @@
 class JobsController < ApplicationController
+	before_action :redirect_if_not_admin 
+	
 	def index
 		@jobs = Job.all
 	end
@@ -14,7 +16,6 @@ class JobsController < ApplicationController
 
 	def show
 		@job = Job.find_by(id: params[:id])
-		@users = @job.users
 		@tasks = @job.tasks
 		
 
@@ -50,7 +51,7 @@ class JobsController < ApplicationController
    		@job = Job.find(params[:id])
  
     	render :edit
-    	redirect_to '/jobs'
+    	# redirect_to '/jobs'
   	end
 
   	def update

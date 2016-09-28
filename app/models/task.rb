@@ -3,3 +3,6 @@ class Task < ApplicationRecord
 	has_many :users, through: "user_tasks"
 	belongs_to :job
 end
+
+
+
