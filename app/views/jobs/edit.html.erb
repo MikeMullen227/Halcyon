@@ -22,10 +22,16 @@
       <%= f.text_field :location %>
     </div>
 
+    <%= f.select :users, options_for_select(@user_array), {}, {:multiple => true} %>
+
     <div class="actions">
-      <%= f.submit "Edit" %>
+      <%= f.submit "Edit Job" %>
     </div>
   <% end %>
 </div>
 
 
+<script>
+  $('#job_users').multiSelect({ keepOrder: true });
+</script>
+  

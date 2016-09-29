@@ -1,11 +1,23 @@
 <div class="container">
-	<h2> User details page </h2>
 
-	<h3> <%= @user.name %> </h3>
+	<h2> Welcome, </h2>
+		<%= @user.name %>
 
-	<ul>
-		<li> Email: <%= @user.email %> </li>
-		<li> Password: <%= @user.password %> </li>
-	</ul>
+	<h2> Current jobsites:</h2>
+		<% @jobs.each do |job| %>
+			<%= job.name %>
+
+	<h3>Jobs Tasks<h3>
+		<% job.tasks.each do |task| %>
+		 	<%= task.name %> </br>
+		 	<%= task.description %> </br>
+			<%= task.deadline %> </br>
+		<% end %> 
+	 	<% end %> 	
 </div>	
+
+		
+
+	
+
 	

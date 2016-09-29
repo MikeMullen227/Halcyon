@@ -1,50 +1,19 @@
 
 <div class="container">
 	<h2>Users Page</h2>
-	<h2>Admins</h2>
 	
 
-	
-	<% @users.each do |user| %>
-		<% if user.role == "admin" %>
-		<%= link_to user.name, admin_path(user) %> | 
-		<%= link_to "Delete", admin_path(user), method: "delete" %> | 
-		<%= link_to "Edit", edit_admin_path(user), method: "get" %> 
-		<br />
-		<% end %>
-
-	<%end%>
-
-
-
-	<h2>Employees</h2>
-	<% @users.each do |user| %>
-		<% if user.role == "employee" %>
-		<%= link_to user.name, admin_path(user) %> | 
-		<%= link_to "Delete", admin_path(user), method: "delete" %> | 
-		<%= link_to "Edit", edit_admin_path(user), method: "get" %> 
-		<br />
+	<% ["admin", "employee", "subcontractor"].each do |role| %>
+		<h2> <%= role.capitalize %> </h2>
+		<% @users.each do |user| %>
+			<% if user.role == role %>
+				<%= link_to user.name, admin_path(user) %> | 
+				<%= link_to "Delete", admin_path(user), method: "delete" %> | 
+				<%= link_to "Edit", edit_admin_path(user), method: "get" %> 
+				<br />
+			<% end %>
 		<%end%>
-	<%end%>
-
-
-	<h2>Subcontractors</h2>
-	<% @users.each do |user| %>
-		<% if user.role == "subcontractor" %>
-		<%= link_to user.name, admin_path(user) %> | 
-		<%= link_to "Delete", admin_path(user), method: "delete" %> | 
-		<%= link_to "Edit", edit_admin_path(user), method: "get" %> 
-		<br />
-		<%end%>
-	<%end%>
-<br />
-	<% @users.each do |user| %>
-		<%= link_to user.name, admin_path(user) %> | 
-		<%= link_to "Delete", admin_path(user), method: "delete" %> | 
-		<%= link_to "Edit", edit_admin_path(user), method: "get" %> 
-		<br />
-	<%end%>
-
+	<% end %>
 
 	<br/>
 	<%= link_to "Create New User", new_admin_path %>
