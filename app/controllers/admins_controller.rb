@@ -1,7 +1,16 @@
 class AdminsController < ApplicationController
-	before_action :redirect_if_not_admin, only: [:show]
+	before_action :redirect_if_not_admin
+
+	def before
+		@nav_links = {
+			"Users" => "/users",
+			"Jobs" => "/jobs",
+			"Tasks" => "/tasks",
+		}
+
 	def index
-	
+		@users = User.all
+		@jobs = Job.all
 	end
 
 	def list
@@ -25,28 +34,22 @@ class AdminsController < ApplicationController
 			redirect_to '/admins/users'
 		else
 			@user = user
-
 			render :new
 		end
 	end
 
 	def show
+		if current_user.role == "admin"
+			@user = User.find(params[:id])
+			@jobs = @user.jobs
+		else 
 		@user = current_user
 		@jobs = current_user.jobs
-		# @tasks = []
-		# @jobs.each do |job|
-		#  job.tasks.each do |task|
-		#  	@tasks.push(task)
-	# 	 end
-	# end
-
-
-
+	 end
 	end
-
+		
  	def edit
    		@user = User.find(params[:id])
- 
     	render :edit
   	end
 
@@ -62,17 +65,24 @@ class AdminsController < ApplicationController
 			redirect_to '/admins/users'
 		else
 			@user = user
-
 			render :edit
 		end
 	end
 
 	def destroy
-
    		user = User.find(params[:id])
-   	
    		user.destroy
-
     	redirect_to '/admins/users'
 	end
 end
+		
+
+   	
+
+
+ 
+
+
+
+
+

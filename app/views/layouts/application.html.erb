@@ -10,14 +10,30 @@
  -->  </head>
 
   <body>
-    <ul class="nav nav-tabs">
-      <li role="presentation" class="active"><a href="#">Home</a></li>
-      <li role="presentation"><a href="#">Users</a></li>
-      <li role="presentation"><a href="#">Jobs </a></li>
+  <nav>
+    <ul class="nav nav-pills">
+      <li role="presentation" class="<%= 'active' if current_page?(controller: '/admins', action: 'index') %>">
+        <a href="/admins"> Home </a>
+      </li>
+      <li role="presentation" class="<%= 'active' if current_page?(controller: '/admins', action: 'list') %>">
+        <a href="/admins/users"> Users </a>
+      </li>
+      <li role="presentation" class="<%= 'active' if current_page?(controller: '/jobs', action: 'index') %>">
+        <a href="/jobs"> Jobs </a>
+      </li>  
+      <% if user_signed_in? %>
+      <li role="presentation" id="logout">
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+      </li>
+      <% end %>  
     </ul>
+  
+  </nav>
+    
+    
 
-    <p class="notice"><%= notice %></p>
-    <!-- <p class="alert"><%= alert %></p> -->
+   <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
     
     <%= yield %>
   </body>

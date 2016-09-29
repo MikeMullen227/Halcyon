@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   def redirect_if_not_admin
     if current_user == nil || current_user.role != "admin"
-      flash[:message] = "You don't have permission to see this page."
+      flash[:alert] = "You don't have permission to see this page."
       redirect_to "/"
     end
   end

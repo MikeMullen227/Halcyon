@@ -14,3 +14,29 @@
  *= require_self
  *= require bootstrap.min.css
  */
+
+
+.admin_header {
+	text-align: center;
+}
+
+.manage_users {
+	border-style: solid;
+	display: inline-block;
+}
+
+.manage_jobs {
+	border-style: solid;
+	display: inline-block;
+
+}
+
+#logout {
+	float: right; 
+    margin-right: 80px;
+}
+
+.nav-pills {
+	margin-left: 4px;
+
+}
