@@ -1,47 +1,40 @@
 <h2>Employee Page</h2>
 
 <h3>Tasks</h3>
+
+
+
+
+
+
+
+
 <ul>
 	<% @tasks.each do |task| %>
-		<li>Job ID: <%= task.job_id %></li>
-		<li>Name: <%= task.name %> </li>
-		<li>Date: <%= task.date %> </li>
-		<li>Description: <%= task.description %> </li>
-		<li>Location: <%= task.location %> </li>
-		<li>Deadline: <%= task.deadline %> </li>
+	<li>
+	<div class="task_panel panel-group " id="accordion" role="tablist" aria-multiselectable="true">
+	  <div class="panel panel-default">
+	    <div class="panel-heading" role="tab" id="headingOne">
+	      <h4 class="panel-title">
+	        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+	          <%= task.name %>
+	        </a>
+	      </h4>
+	    </div>
+	    <div id="collapseOne" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
+	   		<div class="panel-body">
+       			<p>Date: <%= task.date %> </p>
+				<p>Description: <%= task.description %> </p>
+				<p>Location: <%= task.location %> </p>
+				<p>Deadline: <%= task.deadline %> </p>
+      		</div>
+	    </div>
+	  </div>
+	</div>
+	</li>
 	<% end %>
 </ul>
 
-<div id="jsGrid"></div>
-
-<script type="text/javascript">
-	$(function() {
-	 
-	    $("#jsGrid").jsGrid({
-	        height: "90%",
-	        width: "100%",
-	 
-	        filtering: true,
-	        editing: true,
-	        sorting: true,
-	        paging: true,
-	        autoload: true,
-	 
-	        pageSize: 15,
-	        pageButtonCount: 5,
-	 
-	        deleteConfirm: "Do you really want to delete the client?",
-	 
-	        controller: <%= @jobs.to_s %>,
-	 
-	        fields: [
-	            { name: "Name", type: "text", width: 150 },
-	            { name: "Date", type: "date", width: 50 },
-	            { name: "Description", type: "text", width: 200 },
-	            { name: "Location", type: "text" },
-	            { name: "Deadline", type: "text" }
-	        ]
-	    });
-	 
-	});
-</script>
+<div class="checkbox">
+  <label><input type="checkbox" value="">Option 1</label>
+</div>

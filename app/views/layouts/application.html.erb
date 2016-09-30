@@ -19,8 +19,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Halcyon Builders</a>
+                
+                    <%= link_to "Halcyon Builders", "/", class: "navbar-brand" %> 
+                    
+               </ul>
             </div>
+              
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -34,7 +38,7 @@
                   <li>
                       <a href="#">Contact</a>
                   </li>
-
+<!-- 
                   <% if defined?(@nav_tabs) %>
                       <% @nav_tabs.keys.each do |tab| %>
                         <li>
@@ -42,6 +46,21 @@
                         </li>
                       <% end %>
                    <% end %> 
+                </ul>
+ -->
+
+                <% if user_signed_in? %> 
+                  <% if current_user.role == 'admin' %>
+                      <li>
+                        <%= link_to 'Manage', '/admins' %>
+                      </li>
+                      <% elsif current_user.role == 'employee' %>
+                         <% puts(current_user.id)%>
+                         <li>
+                       <%= link_to 'Dashboard', employee_path(current_user) %>
+                      </li>
+                  <% end %>
+                <% end %> 
                 </ul>
 
 

@@ -1,6 +1,15 @@
 	class TasksController < ApplicationController
 		before_action :redirect_if_not_admin 
+		before_action :create_nav
 
+
+
+
+	def create_nav
+	  @nav_tabs =  { 
+	  	'Manage' => '/admins'
+      }
+	end
 	
 	def index
 		@tasks = Task.all

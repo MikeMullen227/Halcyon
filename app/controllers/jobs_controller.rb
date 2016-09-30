@@ -1,5 +1,12 @@
 class JobsController < ApplicationController
 	before_action :redirect_if_not_admin 
+
+	before_filter :create_nav
+	def create_nav
+	  @nav_tabs =  { 
+	  	'Manage' => '/admins'
+      }
+	end
 	
 	def index
 		@jobs = Job.all
