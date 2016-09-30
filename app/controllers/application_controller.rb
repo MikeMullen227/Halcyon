@@ -2,7 +2,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_in_path_for(resource)
-  	'/admins'
+    if current_user.role == "admin"
+      '/admins'
+    elsif current_user.role == "employee"
+      employee_path(current_user)
+    end
+
   end
 
 

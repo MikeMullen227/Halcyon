@@ -1,12 +1,12 @@
 class AdminsController < ApplicationController
 	before_action :redirect_if_not_admin
 
-	def before
-		@nav_links = {
-			"Users" => "/users",
-			"Jobs" => "/jobs",
-			"Tasks" => "/tasks",
-		}
+	before_filter :create_nav
+	def create_nav
+	  @nav_tabs =  { 
+	  	'Manage' => '/admins'
+      }
+	end
 
 	def index
 		@users = User.all

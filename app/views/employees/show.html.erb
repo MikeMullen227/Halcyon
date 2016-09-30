@@ -1,0 +1,47 @@
+<h2>Employee Page</h2>
+
+<h3>Tasks</h3>
+<ul>
+	<% @tasks.each do |task| %>
+		<li>Job ID: <%= task.job_id %></li>
+		<li>Name: <%= task.name %> </li>
+		<li>Date: <%= task.date %> </li>
+		<li>Description: <%= task.description %> </li>
+		<li>Location: <%= task.location %> </li>
+		<li>Deadline: <%= task.deadline %> </li>
+	<% end %>
+</ul>
+
+<div id="jsGrid"></div>
+
+<script type="text/javascript">
+	$(function() {
+	 
+	    $("#jsGrid").jsGrid({
+	        height: "90%",
+	        width: "100%",
+	 
+	        filtering: true,
+	        editing: true,
+	        sorting: true,
+	        paging: true,
+	        autoload: true,
+	 
+	        pageSize: 15,
+	        pageButtonCount: 5,
+	 
+	        deleteConfirm: "Do you really want to delete the client?",
+	 
+	        controller: <%= @jobs.to_s %>,
+	 
+	        fields: [
+	            { name: "Name", type: "text", width: 150 },
+	            { name: "Date", type: "date", width: 50 },
+	            { name: "Description", type: "text", width: 200 },
+	            { name: "Location", type: "text" },
+	            { name: "Deadline", type: "text" }
+	        ]
+	    });
+	 
+	});
+</script>
