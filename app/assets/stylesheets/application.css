@@ -41,7 +41,20 @@
 
 }
 
-.task_panel{
+.job_panel {
 
-	width:40%;
+	width:50%;
+}
+
+.task_panel {
+	width:50%;
+
+}
+
+.job_title {
+	text-align: ;
+}
+
+.task_title {
+	text-align: ;
 }

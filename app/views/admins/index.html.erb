@@ -8,7 +8,7 @@
 		<h2> <%= role.capitalize %> </h2>
 		<% @users.each do |user| %>
 			<% if user.role == role %>
-				<%= link_to user.name, admin_path(user) %> | 
+				<%= link_to user.name, employee_path(user) %> | 
 				<%= link_to "Delete", admin_path(user), method: "delete" %> | 
 				<%= link_to "Edit", edit_admin_path(user), method: "get" %> 
 				<br />

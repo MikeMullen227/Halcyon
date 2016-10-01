@@ -1,50 +1,64 @@
-<div class="container">
-	<h2> Job details page </h2>
 
-	<h3> <%= @job.name %> </h3>
+<div class="container job_panel">
+  <h3 class="job_title">Job </h3>
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h3 class="panel-title"><%= @job.name %></h3>
+	  </div>
+	  <div class="panel-body">
+			<p> Date: <%= @job.date %></p>
+			<p> Location: <%= @job.location %> </p>
+			<p> Description: <%= @job.description %> </p>
+			<% @job.users.each do |user| %>
+				<p> Employee: <%= user.name %> </p>	
+			<% end %>
+	  </div>
+	</div>
+</div>
+	
+	   
 
-	<ul>
-		<li> Date: <%= @job.date %></li>
-		<li> Location: <%= @job.location %> </li>
-		<li> Description: <%= @job.description %> </li>
-		
-
-		<% @job.users.each do |user| %>
-			<li> Employee: <%= user.name %> </li>	
-		<% end %>
-	</ul>
-
-	<h3>Job Tasks</h3>
-	<ul>
-		<% @tasks.each do |task| %>
-			<li>Name: <%= task.name %>  
-			<li>Date: <%= task.date %> </li>
-			<li>Description: <%= task.description %> </li>
-			<li>Location: <%= task.location %> </li>
-			<li>Deadline: <%= task.deadline %> </li>
-
-			<li>
-				Employees:
+<div class="container task_panel">
+<h3>Tasks</h3>
+<%counter=1%>
+<!-- <ul> -->
+	<% @tasks.each do |task| %>
+	<!-- <li> -->
+	<div class="panel-group " id="accordion" role="tablist" aria-multiselectable="true">
+	  <div class="panel panel-default">
+	    <div class="panel-heading" role="tab" id="headingOne">
+	      <h4 class="panel-title">
+	        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#<%=counter%>" aria-expanded="true" aria-controls="collapseOne">
+	          <%= task.name %>
+	        </a>
+	      </h4>
+	    </div>
+	    <div id="<%=counter%>" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
+	   		<div class="panel-body">
+       			<p>Date: <%= task.date.strftime('%a, %d %b %Y %H:%M:%S') %> </p>
+				<p>Location: <%= task.location %> </p>
+				<p>Description: <%= task.description %> </p>
+				<p>Deadline: <%= task.deadline.strftime('%a, %d %b %Y %H:%M:%S') %> </p>
+				<p>Employees:
 				<% task.users.each do |user| %>
 					 <%= user.name %>,
 				<% end %>
-			</li>	
+				</p>	
+				<%= link_to "Edit", edit_task_path(task), method: "get" %> |						
+				<%= link_to "Delete", task_path(task), method: "delete" %> |  	
+      		</div>
+	    </div>
+	  </div>
+	</div>
+	<!-- </li> -->
+	<%counter+=1%>
+	<% end %>
+<!-- </ul> -->
 
-			<%= link_to "Edit", edit_task_path(task), method: "get" %> |						
-			<%= link_to "Delete", task_path(task), method: "delete" %> |  	
-			</br>
-			</br>
-		<% end %>
-	</ul>
-
-	  
 	<form method="get" action="/tasks/new">
 	  <input type="hidden" name="job_id" value="<%= @job.id%>"> <br>
 	  <button>Create New Task</button>
 	</form>
-	
 </div>
-
-
-		
-
+	<button type="button" class="btn btn-secondary">Create New T</button>			
+			

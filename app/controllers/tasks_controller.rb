@@ -35,7 +35,7 @@
 
 	def create
 		job_id = params[:task][:job_id]
-		task = Task.new(
+		@task = Task.new(
 			name: params[:task][:name],
 			date: params[:task][:date],
 			description: params[:task][:description],
@@ -45,24 +45,22 @@
 			job_id: job_id
 			)
 
-
-		if task.save
+		
+		if @task.save
 			
 			params[:task][:users].each do |user|
 				#users.push(User.find_by(:name user))
 				if user != ''
-					task.users << User.find_by(name: user)
+					@task.users << User.find_by(name: user)
 				end
 			end	
-			task.save
-
 			redirect_to '/jobs/' + job_id
+			#render plain: params[:task][:date]
 
 		else
-			@task = task
-
 			render :new
 		end
+		
 	end
 
 	def edit

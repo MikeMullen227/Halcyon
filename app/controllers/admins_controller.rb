@@ -42,9 +42,11 @@ class AdminsController < ApplicationController
 		if current_user.role == "admin"
 			@user = User.find(params[:id])
 			@jobs = @user.jobs
+			
 		else 
 		@user = current_user
 		@jobs = current_user.jobs
+
 	 end
 	end
 		
