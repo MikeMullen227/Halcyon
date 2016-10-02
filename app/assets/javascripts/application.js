@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require bootstrap.min.js 
 //= require_tree .
+
+$('.task-checkbox-completed').click(function(){
+    if ($(this).is(':checked')) {
+        $(this).removeClass('has-error').addClass('has-success'); // checked
+    } else {
+        $(this).addClass('has-error'); //unchecked
+    }
+});
