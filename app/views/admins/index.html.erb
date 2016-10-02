@@ -1,44 +1,44 @@
 <div class="container">
-	
-<h2 class="admin_header"> Admin Page </h2>
-
-<div class="container manage_users">
-	<h2>Manage Users</h2>
-	<% ["admin", "employee", "subcontractor"].each do |role| %>
-		<h2> <%= role.capitalize %> </h2>
-		<% @users.each do |user| %>
-			<% if user.role == role %>
-				<%= link_to user.name, employee_path(user) %> | 
-				<%= link_to "Delete", admin_path(user), method: "delete" %> | 
-				<%= link_to "Edit", edit_admin_path(user), method: "get" %> 
+	<div class="row">
+		<div class="col-md-12">
+			<h2 class="admin_header"> Admin Page </h2>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="container manage-users">
+				<h2 class="manage-users-header">Manage Users</h2>
+				<% ["admin", "employee", "subcontractor"].each do |role| %>
+				<h2> <%= role.capitalize %> </h2>
+				<% @users.each do |user| %>
+				<% if user.role == role %>
+				<%= link_to user.name, employee_path(user) %> |
+				<%= link_to "Delete", admin_path(user), method: "delete" %> |
+				<%= link_to "Edit", edit_admin_path(user), method: "get" %>
 				<br />
-			<% end %>
-		<%end%>
-	<% end %>
-
-	<br/>
-	<%= link_to "Create New User", new_admin_path %>
-</div>
-
-<div class="container manage_jobs">
-	<h2> Manage Jobs </h2>
-		<% @jobs.each do |job| %>
-		<%= link_to job.name, job_path(job) %> | 
-		<%= link_to "Delete", job_path(job), method: "delete" %> | 
-		<%= link_to "Edit", edit_job_path(job), method: "get" %> |
-		<br/>
-		<%end%>
-	<br>
-	<%= link_to "Create a New Job", new_job_path %>
-</div>
-	
-</div>
+				<% end %>
+				<%end%>
+				<% end %>
+				<br/>
+				<%= link_to "Create New User", new_admin_path %>
+			</div>
+		</div>
 		
-
-
-
-
-
-
-
-
+		
+		<div class="col-md-6">
+			<div class="container manage-jobs">
+				<h2 class="manage-jobs-header"> Manage Jobs </h2>
+				<% @jobs.each do |job| %>
+				<%= link_to job.name, job_path(job) %> |
+				<%= link_to "Delete", job_path(job), method: "delete" %> |
+				<%= link_to "Edit", edit_job_path(job), method: "get" %> |
+				<br/>
+				<%end%>
+				<br>
+				<%= link_to "Create a New Job", new_job_path %>
+			</div>
+		</div>
+	</div>
+</div>

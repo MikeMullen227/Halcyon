@@ -20,18 +20,18 @@
 }
 
 .admin_header {
-	text-align: center;
+	border-bottom: solid;
 }
 
-.manage_users {
-	border-style: solid;
-	display: inline-block;
+.manage-users-header {
+	border-bottom: solid;
+	/*display: inline-block;*/
 }
 
-.manage_jobs {
-	border-style: solid;
-	display: inline-block;
-
+.manage-jobs-header {
+	border-bottom: solid;
+/*	display: inline-block;
+*/
 }
 
 #logout {
@@ -73,4 +73,9 @@
 
 .test {
 	float: right;
+}
+
+
+a {
+	color: black;
 }

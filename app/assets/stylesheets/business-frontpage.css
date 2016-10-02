@@ -38,3 +38,7 @@ footer {
 .login {
     float: right;
 }
+
+a {
+    color: black;
+}
