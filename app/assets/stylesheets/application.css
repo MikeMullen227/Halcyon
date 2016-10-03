@@ -15,24 +15,16 @@
  *= require_self
  *= require bootstrap.min.css
  */
+
+/*---------navigation bar---------*/
+
+ .navbar-brand {
+ 	color: black;
+ }
 .navbar-fixed-top {
-	background-color: lightblue;
+	background-color: #5bc0de;
 }
 
-.admin_header {
-	border-bottom: solid;
-}
-
-.manage-users-header {
-	border-bottom: solid;
-	/*display: inline-block;*/
-}
-
-.manage-jobs-header {
-	border-bottom: solid;
-/*	display: inline-block;
-*/
-}
 
 #logout {
 	float: right; 
@@ -75,7 +67,48 @@
 	float: right;
 }
 
-
 a {
 	color: black;
 }
+
+/*--------admin dashboard--------*/
+
+.manage-user-roles {
+	border-top: solid;
+    border-width: 2px;
+    padding-top: 25px;
+}
+
+
+.button_to  {
+	position: relative; 
+	display: inline;
+	/*float: right;*/
+}
+
+
+.admin_header {
+	border-bottom: solid;
+	border-width: 2px;
+	font-size: 40px;
+    color: #3f67b5;
+    padding-bottom: 15px;	
+}
+
+.manage-jobs-header {
+	border-bottom: solid;
+	border-width: 2px;
+	width: 525px;
+	height: 55	px;
+}
+
+.admin-edit-user {
+	margin-left: 50px;
+}
+
+.btn-sm {
+	    padding: 1px 35px;
+	    border-radius: 20px;
+}
+
+

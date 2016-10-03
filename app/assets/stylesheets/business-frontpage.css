@@ -42,3 +42,10 @@ footer {
 a {
     color: black;
 }
+.navbar-inverse .navbar-brand {
+    color: black;
+ }
+
+.navbar-inverse .navbar-nav>li>a {
+    color: black;
+}
