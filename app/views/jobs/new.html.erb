@@ -1,45 +1,44 @@
-
-
 <div class="container">
-  <h2>Create a New Job</h2>
- 
-  
-  <%= form_for(@job, url: jobs_path) do |f| %>
-    <div class="field">
-      <%= f.label :name %><br />
-      <%= f.text_field :name %>
+  <div class="row">
+    <div class="col-md-12 edit_user">
+      </br>
+      </br>
+      </br>
+      <div class="container">
+        <h2>Create a New Job</h2>
+        
+        <%= form_for(@job, url: jobs_path) do |f| %>
+        <div class="field">
+          <%= f.label :name %><br />
+          <%= f.text_field :name %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :date %><br />
+          <%= f.date_field :date %>
+        </div>
+        <div class="field">
+          <%= f.label :description %><br />
+          <%= f.text_field :description %>
+        </div>
+        <div class="field">
+          <%= f.label :location %><br />
+          <%= f.text_field :location %>
+        </div>
+        <div class="field">
+          <%= f.label :employee %><br />
+          
+        </div>
+        <%= f.select :users, options_for_select(@user_array), {}, {:multiple => true} %>
+        <div class="actions">
+          <%= f.submit "Create Job" %>
+        </div>
+        
+        <% end %>
+      </div>
     </div>
-   
-    <div class="field">
-      <%= f.label :date %><br />
-      <%= f.date_field :date %>
-    </div>
-
-    <div class="field">
-      <%= f.label :description %><br />
-      <%= f.text_field :description %>
-    </div>
-
-    <div class="field">
-      <%= f.label :location %><br />
-      <%= f.text_field :location %>
-    </div>
-
-    <div class="field">
-      <%= f.label :employee %><br />
-      
-    </div>
-
-    <%= f.select :users, options_for_select(@user_array), {}, {:multiple => true} %>
-
-    <div class="actions">
-      <%= f.submit "Create Job" %>
-    </div>
-    
-    <% end %>
-</div>
-
-
-<script>
+  </div>
+  <script>
   $('#job_users').multiSelect({ keepOrder: true });
-</script>
+  </script>
+        

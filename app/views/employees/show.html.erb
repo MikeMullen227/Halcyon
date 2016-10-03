@@ -1,41 +1,40 @@
-
 <div class="container task_panel">
-
-<h2>Employee Page</h2>
-
-<h3>Tasks</h3>
-<%counter=1%>
-
-	<% @tasks.each do |task| %>
-	<div class="panel-group " id="accordion" role="tablist" aria-multiselectable="true">
-	  <div class="panel panel-default">
-	    <div class="panel-heading" role="tab" id="headingOne">
-	      <h4 class="panel-title">
-	        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#<%=counter%>" aria-expanded="true" aria-controls="collapseOne">
-	          <%= task.name %>
-	        </a>
-	         	<label class="task-checkbox">
-	             	<input type="checkbox" class="task-checkbox-completed">Completed_
-	         	</label>
-	        	
-	      </h4>
-	   	    <div id="<%=counter%>" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
-	   		<div class="panel-body">
-       			<p>Date: <%= task.date.strftime('%a, %d %b %Y %H:%M:%S') %> </p>
-				<p>Location: <%= task.location %> </p>
-				<p>Description: <%= task.description %> </p>
-				<p>Deadline: <%= task.deadline.strftime('%a, %d %b %Y %H:%M:%S')  %> </p>
-      		</div>
-	    </div>
-	  </div>
+	<div class="row">
+		<div class="col-md-12">
+		</br>
+		</br>
+		</br>
+			<h2 class="employee_name">Welcome, <%= current_user.name%></h2>
+			<h3>Tasks</h3>
+			<%counter=1%>
+			<% @tasks.each do |task| %>
+			<div class="panel-group " id="accordion" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingOne">
+						<h4 class="panel-title">
+						<a role="button" data-toggle="collapse" data-parent="#accordion" href="#<%=counter%>" aria-expanded="true" aria-controls="collapseOne">
+							<%= task.name %>
+						</a>
+						<label class="task-checkbox">
+							<input type="checkbox" class="task-checkbox-completed" autocomplete="off">Task Completed &nbsp;
+						</label>
+						
+						</h4>
+						<div id="<%=counter%>" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
+							<div class="panel-body">
+								<p>Date: <%= task.date.strftime('%a, %d %b %Y %H:%M:%S') %> </p>
+								<p>Location: <%= task.location %> </p>
+								<p>Description: <%= task.description %> </p>
+								<p>Deadline: <%= task.deadline.strftime('%a, %d %b %Y %H:%M:%S')  %> </p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<%counter+=1%>
+				<% end %>
+			</div>
+		</div>
 	</div>
-	<%counter+=1%>
-	<% end %>
-
-
 </div>
-	
-	         
-
-	         
-	      		
+			
+			

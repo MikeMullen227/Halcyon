@@ -61,6 +61,7 @@
 
 .task-checkbox-completed {
 	float: right;
+	margin-top: 2px !important;
 }
 
 .test {
@@ -69,6 +70,12 @@
 
 a {
 	color: black;
+}
+
+/*--------log in-----------*/
+
+.log-in {
+	text-align: center;
 }
 
 /*--------admin dashboard--------*/
@@ -116,6 +123,10 @@ a {
 
 }
 
+.manage-jobs-header-div {
+	padding-left: 0px;
+}
+
 .manage-jobs-with-button {
 	border-bottom: solid;
 	border-width: 2px;
@@ -156,5 +167,36 @@ a {
 	background-color: #3f67b5;
 }*/
 
+/*--------create new user page--------*/
   
+.form-control {
+  	width: 14%;
+  }
+
+.create_new_user {
+	text-align: center;
+}
+
+/*---------edit user-------------*/
+.edit_user {
+	text-align: center;
+}
+
+/*---------edit job-------------*/
+
+.edit_job {
+	text-align: center;
+}
+
+.ms-container {
+	display: inline-block;
+}
+
+/*--------employee page-------------*/
+
+.employee_name {
+	text-align: center;
+}
+
+
 
