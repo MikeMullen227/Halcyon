@@ -73,10 +73,22 @@ a {
 
 /*--------admin dashboard--------*/
 
+.manage-users-header {
+	margin-bottom: 7px;
+}
+
+.manage-users-user {
+	margin: 10px 0;
+}
 .manage-user-roles {
 	border-top: solid;
     border-width: 2px;
     padding-top: 25px;
+	margin-top: 0;
+}
+
+.manage-user-roles ~ .manage-user-roles {
+	margin-top: 20px;
 }
 
 
@@ -93,15 +105,21 @@ a {
 	font-size: 40px;
     color: #3f67b5;
     padding-bottom: 15px;	
+    margin-top: 50px;
+
 }
 
 .manage-jobs-header {
 	border-bottom: solid;
 	border-width: 2px;
-	width: 525px;
-	height: 55	px;
+	padding-bottom: 7px;
+
 }
 
+.manage-jobs-job {
+	margin: 10px 0;
+
+}
 .admin-edit-user {
 	margin-left: 50px;
 }
@@ -111,4 +129,20 @@ a {
 	    border-radius: 20px;
 }
 
+.btn-edit  {
+	background-color: #3f67b5;
+	border-color: #3f51b5;
+
+}
+.btn-edit:hover  {
+	background-color: #3a55b7;
+	border-color: #3f51b5;
+	
+}
+/*
+.delete .btn .btn-info .btn-sm  {
+	background-color: #3f67b5;
+}*/
+
+  
 
