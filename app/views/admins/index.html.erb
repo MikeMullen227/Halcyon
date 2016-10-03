@@ -9,69 +9,71 @@
 	<div class="row">
 		<div class="col-md-6">
 			<div class="container manage-users">
-				<h2 class="manage-users-header">Manage Users</h2>
+				<div class="row">
+					<div class="col-md-5">
+						<h2 class="manage-users-header">Manage Users</h2>
+					</div>
+					<div class="col-md-7">
+						<h2 class="create-new-user"><%= button_to("Create New User", new_admin_path, :class => 'btn btn-info btn-sm', method: "get") %></h2>
+					</div>
+				</div>
 				<% ["admin", "employee", "subcontractor"].each do |role| %>
-
-				
 				<h2 class="manage-user-roles"> <%= role.capitalize %> </h2>
-
 				<% @users.each do |user| %>
 				<% if user.role == role %>
 				
 				<div class="row manage-users-user">
 					<div class="col-md-5">
-						<span><%= link_to user.name, employee_path(user) %> </span>	
+						<span><%= link_to user.name, employee_path(user) %> </span>
 					</div>
-						
+					
 					<div class="col-md-7">
 						<span class="admin-edit-user">
-						<%= button_to("Edit", edit_admin_path(user), :class => 'btn-edit btn btn-info btn-sm', method: "get") %>
+							<%= button_to("Edit", edit_admin_path(user), :class => 'btn-edit btn btn-info btn-sm', method: "get") %>
 						</span>
-
 						<span class="admin-delete-user">
-						<%= button_to("Delete", admin_path(user), :class => 'btn btn-info btn-sm', method: "delete") %> 
+							<%= button_to("Delete", admin_path(user), :class => 'btn btn-info btn-sm', method: "delete") %>
 						</span>
 					</div>
+					<br/>
+				</div>
 				
-				<br/>
-				</div>	
-					
 				<%end%>
 				<% end %>
 				<% end %>
-					<%= button_to("Create New User", new_admin_path, :class => 'btn btn-info btn-sm', method: "get") %>
 			</div>
 		</div>
 		
-		
-			<div class="col-md-6">
-				<div class="container manage-jobs">
-					<h2 class="manage-jobs-header"> Manage Jobs </h2>
-					<% @jobs.each do |job| %>
-					<div class= "row manage-jobs-job">
-					<div class="col-md-6">
-						<div> <%= link_to job.name, job_path(job) %> </div>
+		<div class="col-md-6">
+			<div class="container manage-jobs">
+				<div class="row manage-jobs-with-button">
+					<div class="col-md-5">
+						<h2 class="manage-jobs-header"> Manage Jobs </h2>
 					</div>
+					<div class="col-md-7">
 						
+						<h2 class="create-new-job">		<%= button_to("Create New Job", new_job_path, :class => 'btn btn-info btn-sm', method: "get") %></h2>
+					</div>
+				</div>
+				<% @jobs.each do |job| %>
+				<div class= "row manage-jobs-job">
+					<div class="col-md-6">
+						<span> <%= link_to job.name, job_path(job) %> </span>
+					</div>
+					
 					<div class="col-md-6">
 						<span class="admin-edit-job">
-						<%= button_to("Edit", edit_job_path(job), :class => 'btn-edit btn btn-info btn-sm', method: "get") %>
+							<%= button_to("Edit", edit_job_path(job), :class => 'btn-edit btn btn-info btn-sm', method: "get") %>
 						</span>
 						<span class="admin-delete-job">
-							<%= button_to("Delete", job_path(job), :class => 'btn btn-info btn-sm', method: "delete") %> 
+							<%= button_to("Delete", job_path(job), :class => 'btn btn-info btn-sm', method: "delete") %>
 						</span>
+						
 					</div>
-					</div>
-					
-					<%end%>
-						<%= link_to "Create a New Job", new_job_path %>
-					
 				</div>
+				<%end%>
 			</div>
+			
 		</div>
 	</div>
 </div>
-
-
-
-				

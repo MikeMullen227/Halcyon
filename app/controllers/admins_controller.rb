@@ -31,7 +31,7 @@ class AdminsController < ApplicationController
 		)
 
 		if user.save
-			redirect_to '/admins/users'
+			redirect_to '/admins'
 		else
 			@user = user
 			render :new
@@ -64,7 +64,7 @@ class AdminsController < ApplicationController
 		user.role = params[:user][:role]
 
 		if user.save
-			redirect_to '/admins/users'
+			redirect_to '/admins'
 		else
 			@user = user
 			render :edit
@@ -74,7 +74,7 @@ class AdminsController < ApplicationController
 	def destroy
    		user = User.find(params[:id])
    		user.destroy
-    	redirect_to '/admins/users'
+    	redirect_to '/admins'
 	end
 end
 		

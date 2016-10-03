@@ -46,7 +46,7 @@ class JobsController < ApplicationController
 			end	
 			job.save
 
-			redirect_to '/jobs'
+			redirect_to '/admins'
 		else
 			@job = job
 
@@ -91,7 +91,7 @@ class JobsController < ApplicationController
 	def destroy
 		job = Job.find(params[:id])
    		job.destroy
-		redirect_to jobs_path
+		redirect_to '/admins'
 	end
 
 end
