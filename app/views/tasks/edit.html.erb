@@ -28,16 +28,19 @@
           <%= f.date_field :deadline %>
         </div>
         <div class="field">
-          <%= f.label :employee %><br />
-          
+          <%= f.label :employees %><br />
         </div>
+          
         <%= f.select :users, options_for_select(@user_array), {}, {:multiple => true} %>
         
         <div class="actions">
-          <%= f.submit "Edit" %>
+          <%= f.submit "Edit Task" %>
         </div>
         <% end %>
       </div>
     </div>
   </div>
 </div>
+<script>
+$('#task_users').multiSelect({ keepOrder: true });
+</script>

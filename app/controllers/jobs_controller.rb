@@ -34,6 +34,7 @@ class JobsController < ApplicationController
 			date: params[:job][:date],
 			description: params[:job][:description],
 			location: params[:job][:location],
+			deadline: params[:job][:deadline]
 			)
 
 		if job.save
@@ -72,6 +73,7 @@ class JobsController < ApplicationController
 		job.date = params[:job][:date]
 		job.description = params[:job][:description]
 		job.location = params[:job][:location]
+		job.deadline = params[:job][:deadline]
 		
 		if job.save
 			# code below prevents duplicate names after updating

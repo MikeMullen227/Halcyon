@@ -1,15 +1,15 @@
 	class TasksController < ApplicationController
 		before_action :redirect_if_not_admin 
-		before_action :create_nav
+	
 
 
 
 
-	def create_nav
-	  @nav_tabs =  { 
-	  	'Manage' => '/admins'
-      }
-	end
+	# def create_nav
+	#   @nav_tabs =  { 
+	#   	'Manage' => '/admins'
+ #      }
+	# end
 	
 	def index
 		@tasks = Task.all
@@ -63,11 +63,16 @@
 		
 	end
 
+
 	def edit
    		@task = Task.find(params[:id])
-
-   		
- 
+ 		@users = User.all
+		@user_array = []
+		@users.each do |user|
+			@user_array.push(user.name)
+    	
+    	# redirect_to '/jobs'
+    	end
     	render :edit
   	end
 
@@ -80,8 +85,18 @@
 		task.deadline = params[:task][:deadline]
 
 		job_id = task.job.id
+		job = Job.find(job_id)
 
 		if task.save
+			params[:task][:users].each do |name|
+				if name != ""
+					user = User.find_by(name: name)
+
+					if !task.users.include? user
+						task.users << user
+					end
+				end
+			end	
 			redirect_to job_path(job_id)
 		else
 			@task = task
@@ -91,17 +106,17 @@
 	end
 
 	def destroy
-
    		task = Task.find(params[:id])
    	
    		task.destroy
    		job_id = task.job.id
    		redirect_to job_path(job_id)
-    	
 	end
 
 end
 
+
+    	
 
 
 
