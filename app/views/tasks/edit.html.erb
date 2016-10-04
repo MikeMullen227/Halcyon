@@ -31,7 +31,7 @@
           <%= f.label :employees %><br />
         </div>
           
-        <%= f.select :users, options_for_select(@user_array), {}, {:multiple => true} %>
+        <%= f.select :users, options_for_select(@users, @task_users), {}, {:multiple => true} %>
         
         <div class="actions">
           <%= f.submit "Edit Task" %>

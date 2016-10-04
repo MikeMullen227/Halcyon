@@ -35,10 +35,10 @@
 	    </div>
 	    <div id="<%=counter%>" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
 	   		<div class="panel-body">
-       			<p>Date: <%= task.date.strftime('%a, %d %b %Y %H:%M:%S') %> </p>
+       			<p>Date: <%= task.date %> </p>
 				<p>Location: <%= task.location %> </p>
 				<p>Description: <%= task.description %> </p>
-				<p>Deadline: <%= task.deadline.strftime('%a, %d %b %Y %H:%M:%S') %> </p>
+				<p>Deadline: <%= task.deadline%> </p>
 				<p>Employees:
 				<% task.users.each do |user| %>
 					 <%= user.name %>,

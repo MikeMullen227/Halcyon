@@ -66,18 +66,25 @@
 
 	def edit
    		@task = Task.find(params[:id])
- 		@users = User.all
-		@user_array = []
-		@users.each do |user|
-			@user_array.push(user.name)
-    	
+ 		users = User.all
+		@users = []
+
+		users.each do |user|
+			@users.push(user.name)
     	# redirect_to '/jobs'
     	end
+
+    	@task_users = []
+    	@task.users.each do |user|
+    		@task_users.push(user.name)
+
+    	end
+
     	render :edit
   	end
 
   	def update
-	task = Task.find(params[:id])
+		task = Task.find(params[:id])
 		task.name = params[:task][:name]
 		task.date = params[:task][:date]
 		task.description = params[:task][:description]
@@ -88,6 +95,7 @@
 		job = Job.find(job_id)
 
 		if task.save
+			task.users.destroy_all
 			params[:task][:users].each do |name|
 				if name != ""
 					user = User.find_by(name: name)
