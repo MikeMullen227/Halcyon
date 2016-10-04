@@ -18,9 +18,25 @@
 
 /*---------navigation bar---------*/
 
- .navbar-brand {
- 	color: black;
- }
+.navbar-brand, nav a {
+ 	color: white;
+}
+.navbar-brand:hover, 
+.navbar-brand:focus, 
+.navbar-nav>li>a:hover, 
+.navbar-nav>li>a:focus,
+.navbar-nav>li.active>a {
+	color: #666;
+}
+
+.navbar-nav>li>a:hover, 
+.navbar-nav>li>a:focus {
+	background-color: initial;
+}
+.navbar-nav>li.active>a {
+	background-color: #fff;
+}
+
 .navbar-fixed-top {
 	background-color: #5bc0de;
 }
@@ -34,6 +50,10 @@
 .nav-pills {
 	margin-left: 4px;
 
+}
+
+.business-header {
+	background-image: url(/my_image_folder/large-banner.jpg);
 }
 
 .job_panel {
