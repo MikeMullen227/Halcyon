@@ -18,6 +18,7 @@
 
 /*---------navigation bar---------*/
 
+
 .navbar-brand, nav a {
  	color: white;
 }
@@ -51,10 +52,10 @@
 	margin-left: 4px;
 
 }
-
+/*
 .business-header {
 	background-image: url(/my_image_folder/large-banner.jpg);
-}
+}*/
 
 .job_panel {
 
@@ -195,6 +196,13 @@ a {
 
 .create_new_user {
 	text-align: center;
+}
+
+#user_role{
+	position: relative;
+    left: 43.2%;
+    height: 28px;
+    width: 156px;
 }
 
 /*---------edit user-------------*/

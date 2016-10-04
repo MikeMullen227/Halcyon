@@ -74,13 +74,17 @@ class JobsController < ApplicationController
 		job.location = params[:job][:location]
 		
 		if job.save
-			params[:job][:users].each do |user|
-				#users.push(User.find_by(:name user))
-				if user != ''
-					job.users << User.find_by(name: user)
+			# code below prevents duplicate names after updating
+			params[:job][:users].each do |name|
+				if name != ""
+					user = User.find_by(name: name)
+
+					if !job.users.include? user
+						job.users << user
+					end
 				end
 			end	
-			redirect_to '/jobs'
+			redirect_to job_path(job.id)
 		else
 			@job = job
 
