@@ -4,7 +4,7 @@
 		</br>
 		</br>
 		</br>
-			<h2 class="employee_name">Welcome, <%= current_user.name%></h2>
+			<h2 class="employee_name">Welcome, <%= @user.name%></h2>
 			<h3>Tasks</h3>
 			<%counter=1%>
 			<% @tasks.each do |task| %>

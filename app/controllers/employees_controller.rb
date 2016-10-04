@@ -8,9 +8,11 @@ class EmployeesController < ApplicationController
 	# end
 	
 	def show
-		@jobs = current_user.jobs.as_json
-		@tasks = current_user.tasks
-		@employee = current_user
+		@user = User.find(params[:id])
+		@jobs = @user.jobs.as_json
+		@tasks = @user.tasks
+		@employee = @user
+
 	end
 		
 
