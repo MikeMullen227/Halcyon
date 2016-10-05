@@ -16,6 +16,24 @@
  *= require bootstrap.min.css
  */
 
+
+/*--------homepage-----------*/
+
+.homepage-logo {
+	position: relative;
+    right: 50px;
+}
+
+.click-here {
+	background-color: #3f67b5;
+    border-color: #3f51b5;
+}
+
+.img-circle {
+	height: 300px;
+	width: 300px;
+}
+
 /*---------navigation bar---------*/
 
 
@@ -113,10 +131,13 @@ a {
     border-width: 2px;
     padding-top: 25px;
 	margin-top: 0;
+	color: #5bc0de;
+	border-color: #3f67b5;
 }
 
 .manage-user-roles ~ .manage-user-roles {
 	margin-top: 20px;
+
 }
 
 
@@ -151,6 +172,7 @@ a {
 .manage-jobs-with-button {
 	border-bottom: solid;
 	border-width: 2px;
+	border-color: #3f67b5;
 }
 .manage-jobs-job {
 	margin: 10px 0;

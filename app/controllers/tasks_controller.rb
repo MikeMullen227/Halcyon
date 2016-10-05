@@ -28,7 +28,7 @@
 	end
 
 	def show
-		@job_id = params[:job_id]
+		@job_id = params[:job_idx]
 		@task = Task.find_by(id: params[:id])
 		@task_users = @task.users
 	end
