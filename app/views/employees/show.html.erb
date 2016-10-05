@@ -1,40 +1,77 @@
 <div class="container task_panel">
 	<div class="row">
 		<div class="col-md-12">
-		</br>
-		</br>
-		</br>
+			</br>
+			</br>
+			</br>
 			<h2 class="employee_name">Welcome, <%= @user.name%></h2>
-			<h3>Tasks</h3>
+			<h2>Jobs<h2>
 			<%counter=1%>
-			<% @tasks.each do |task| %>
+			<% @jobs.keys.each do |key| %>
 			<div class="panel-group " id="accordion" role="tablist" aria-multiselectable="true">
 				<div class="panel panel-default">
 					<div class="panel-heading" role="tab" id="headingOne">
-						<h4 class="panel-title">
-						<a role="button" data-toggle="collapse" data-parent="#accordion" href="#<%=counter%>" aria-expanded="true" aria-controls="collapseOne">
-							<%= task.name %>
-						</a>
+						<h3 style="margin:0;">
+
+						<%= @jobs[key][:name] %>
 						<label class="task-checkbox">
-							<input type="checkbox" class="task-checkbox-completed" autocomplete="off">Task Completed &nbsp;
+							<button type="button" class="btn btn-info" data-id="<%=key%>">Clock In</button>
 						</label>
-						
-						</h4>
-						<div id="<%=counter%>" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
-							<div class="panel-body">
-								<p>Date: <%= task.date.strftime('%a, %d %b %Y %H:%M:%S') %> </p>
-								<p>Location: <%= task.location %> </p>
-								<p>Description: <%= task.description %> </p>
-								<p>Deadline: <%= task.deadline.strftime('%a, %d %b %Y %H:%M:%S')  %> </p>
+						</h3>
+						<h4>Tasks</h4>
+						<% @jobs[key][:tasks].each do |task| %>
+						<div class="panel-group " id="accordion" role="tablist" aria-multiselectable="true">
+							<div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingOne">
+									<h4 class="panel-title">
+									<a role="button" data-toggle="collapse" data-parent="#accordion" href="#<%=counter%>" aria-expanded="true" aria-controls="collapseOne">
+										<%= task.name %>
+									</a>
+									<label class="task-checkbox">
+										<input type="checkbox" class="task-checkbox-completed" autocomplete="off">Task Completed &nbsp;
+									</label>
+									
+									</h4>
+									<div id="<%=counter%>" class="panel-collapse collapse out" role="tabpanel" style="font-size:medium;">
+										<div class="panel-body">
+											<p>Date: <%= task.date.strftime('%a, %d %b %Y %H:%M:%S') %> </p>
+											<p>Location: <%= task.location %> </p>
+											<p>Description: <%= task.description %> </p>
+											<p>Deadline: <%= task.deadline.strftime('%a, %d %b %Y %H:%M:%S')  %> </p>
+										</div>
+									</div>
+								</div>
 							</div>
+							<%counter+=1%>
 						</div>
+						<% end %>
 					</div>
 				</div>
-				<%counter+=1%>
 				<% end %>
 			</div>
 		</div>
 	</div>
 </div>
-			
-			
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".btn-info").click(function() {
+			var id = $(this).attr("data-id");
+			$.ajax({
+				type: "PUT",
+				url: `/employees/` + <%= @user.id %>,
+				data: {"job_id": id},
+				success: success,
+				error: error
+			});
+		});
+
+		function success(data, textStatus, jqXHR) {
+			console.log(data);
+		}
+
+		function error(jqXHR, textStatus, errorThrown) {
+			console.log(errorThrown);
+		}
+	});
+</script>

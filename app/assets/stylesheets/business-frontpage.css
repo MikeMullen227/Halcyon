@@ -12,7 +12,7 @@ body {
 
 .business-header {
     height: 400px;
-    background: url('http://placehold.it/1920x400') center center no-repeat scroll;
+    background: url(https://static1.squarespace.com/static/56bd45d620c64756d826ec3a/t/56bd5099746fb9f48e72ad0d/1455247514460/team.jpg?format=2500w) center center no-repeat scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;

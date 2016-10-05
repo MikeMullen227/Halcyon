@@ -1,11 +1,11 @@
 $(document).on("turbolinks:load", function () {
 
-  $(".js-add-ingredient").on("click", SandwichrApp.addIngredientToSandwich);
+  $(".js-log-in-out").on("click", HalcyonApp.);
 
 });
 
 
-SandwichrApp.addIngredientToSandwich = function (event) {
+HalcyonApp.addIngredientToSandwich = function (event) {
   // Get the button that was clicked from the event's currentTarget
   var theButton = event.currentTarget;
 
