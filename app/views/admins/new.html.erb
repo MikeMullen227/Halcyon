@@ -3,7 +3,7 @@
     <div class="col-md-12 create_new_user">
       <br>
       <br>
-      <br>
+     
       <h2>Create a New User</h2>
       <% if @user.errors.any? %>
       <% @user.errors.full_messages.each do |message| %>
@@ -12,31 +12,31 @@
       <% end %>
       
       <%= form_for(@user, url: admins_path) do |f| %>
-      <div class="field">
+      <div class="form-group">
         <%= f.label :name %><br />
-        <%= f.text_field :name, autofocus: true %>
+        <%= f.text_field :name, autofocus: true, class: 'form-control' %>
       </div>
-      <div class="field">
+      <div class="form-group">
         <%= f.label :email %><br />
-        <%= f.email_field :email %>
+        <%= f.email_field :email, class: 'form-control' %>
       </div>
-      <div class="field">
+      <div class="form-group">
         <%= f.label :password %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control'%>
       </div>
-      <div class="field">
+      <div class="form-group">
         <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
       </div>
       
      
 
 
       <div class="form-group">
-        <label for="sel1">User Role:</label>
+        <label for="sel1">User Role:</label><br>
         <%= f.select :role, ["admin", "employee", "subcontractor"], {}, {include_blank: true, required: 'true', class: 'form-control'} %>
       </div>
       <div class="actions">

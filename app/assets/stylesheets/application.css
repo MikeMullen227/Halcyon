@@ -172,7 +172,7 @@ a {
 .manage-jobs-with-button {
 	border-bottom: solid;
 	border-width: 2px;
-	border-color: #3f67b5;
+	border-color: #3f67b5;	
 }
 .manage-jobs-job {
 	margin: 10px 0;
@@ -211,20 +211,17 @@ a {
 }*/
 
 /*--------create new user page--------*/
-  
 .form-control {
-  	width: 14%;
+  	
+  	display: inline-block;
   }
+
+.role .form-control {
+
+}
 
 .create_new_user {
 	text-align: center;
-}
-
-#user_role{
-	position: relative;
-    left: 43.2%;
-    height: 28px;
-    width: 156px;
 }
 
 /*---------edit user-------------*/
@@ -248,5 +245,67 @@ a {
 	text-align: center;
 }
 
+/*--------forms-------------*/
+#task_name {
+	width: 233px;
+}
 
+#task_location {
+	width: 233px;
+}
 
+#task_date {
+	width: 233px;
+}
+
+#task_deadline {
+	width: 233px;
+}
+
+#task_description {
+	width: 233px;
+}
+
+#job_name {
+	width: 233px;
+}
+
+#job_location {
+	width: 233px;
+}
+
+#job_description {
+	width: 233px;
+}
+
+#job_date {
+	width: 233px;
+}
+
+#job_deadline {
+	width: 233px;
+}
+
+#task_name {
+	width: 233px;
+
+}
+
+#user_name {
+	width: 233px;
+}
+
+#user_email {
+	width: 233px;
+}
+#user_password {
+	width: 233px;
+}
+
+#user_password_confirmation {
+	width: 233px;
+}
+
+#user_role {	
+	width: 233px;
+}

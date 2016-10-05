@@ -3,28 +3,28 @@
     <div class="col-md-12 edit_job">
       </br>
       </br>
-      </br>
+      
       <h2> Edit <%= @job.name %> </h2>
       <%= form_for(@job, url: job_path(@job)) do |f| %>
-      <div class="field">
+      <div class="form-group">
         <%= f.label :name %><br />
-        <%= f.text_field :name %>
+        <%= f.text_field :name, class: 'form-control' %>
       </div>
-      <div class="field">
+      <div class="form-group">
         <%= f.label :date %><br />
-        <%= f.date_field :date %>
+        <%= f.date_field :date, class: 'form-control' %>
       </div>
-      <div class="field">
-        <%= f.label :description %><br />
-        <%= f.text_field :description %>
-      </div>
-      <div class="field">
+      <div class="form-group">
         <%= f.label :location %><br />
-        <%= f.text_field :location %>
+        <%= f.text_field :location, class: 'form-control' %>
       </div>
-      <div class="field">
+      <div class="form-group">
         <%= f.label :deadline %><br />
-        <%= f.date_field :deadline %>
+        <%= f.date_field :deadline, class: 'form-control' %>
+       <div class="form-group">
+        <%= f.label :description %><br />
+        <%= f.text_area :description, class: 'form-control' %>
+      </div>
       </div>
       <div class="field">
         <%= f.label :Employees %><br />
