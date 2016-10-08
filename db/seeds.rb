@@ -6,9 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user_1 = User.create!(name: "Mike Mullen", email: "mmullen227@gmail.com", password:"1234567", password_confirmation: "1234567", role: "admin")
-user_2 = User.create!(name: "Johnny AppleSeed", email: "johnnyappleseed@gmail.com", password:"123456", password_confirmation: "123456", role: "employee")
-user_3 = User.create!(name: "Roger Rabbit", email: "rogerrabbit@gmail.com", password:"123456", password_confirmation: "123456", role: "subcontractor")
+user_1 = User.create!(name: "Mike Mullen", email: "mmullen227@gmail.com", password:"123456", password_confirmation: "123456", role: "admin")
+user_2 = User.create!(name: "Boris", email: "boris@gmail.com", password:"123456", password_confirmation: "123456", role: "employee")
+user_3 = User.create!(name: "Jose", email: "jose@gmail.com", password:"123456", password_confirmation: "123456", role: "subcontractor")
+user_2 = User.create!(name: "Isabel", email: "isabel@gmail.com", password:"123456", password_confirmation: "123456", role: "admin")
+
 
 task_1 = Task.create!(name: "Build Wall", description: "Install metal framing, Drill screws into drywall and metal", location: "Mount Sinai MSOP 1105")
 task_2 = Task.create!(name: "Hang Door Frame and Door", description: "Install metal door frame, screw door hinges to frame", location: "Miami Jewish Bldg. 3 Apt. 405")

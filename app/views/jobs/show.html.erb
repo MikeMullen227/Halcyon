@@ -9,9 +9,11 @@
 			<p> Date: <%= @job.date %></p>
 			<p> Location: <%= @job.location %> </p>
 			<p> Description: <%= @job.description %> </p>
-			<% @job.users.each do |user| %>
-					<p> Employee: <%= user.name %> </p>	
-			<% end %>
+			<p>Employees:
+				<% @job.users.each do |user| %>
+					 <%= user.name %>,
+				<% end %>
+				</p>	
 	  </div>
 	</div>
 </div>
@@ -57,8 +59,8 @@
 
 	<form method="get" action="/tasks/new">
 	  <input type="hidden" name="job_id" value="<%= @job.id%>"> <br>
-	  <button>Create New Task</button>
+		<button type="submit" class="btn btn-info">Create New Task</button>			
+ 	<!-- 	 <button>Create New Task</button>  -->
 	</form>
 </div>
-	<button type="button" class="btn btn-secondary">Create New T</button>			
 			

@@ -2,8 +2,6 @@
   <div class="row">
     <div class="col-md-12 edit_job">
       <br>
-      <br>
-      <br>
       <div class="container">
         <h2>Create Task</h2>
         
@@ -40,7 +38,8 @@
         <%= f.select :users, options_for_select(@user_array), {}, {:multiple => true} %>
         
         <div class="actions">
-          <%= f.submit "Create" %>
+     
+          <button type="submit" class="btn btn-info">Create</button> 
         </div>
         <% end %>
       </div>
