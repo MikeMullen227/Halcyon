@@ -190,6 +190,7 @@ a {
 }
 .admin-edit-user {
 	margin-left: 50px;
+	display: inline-block;
 }
 
 .btn-sm {
